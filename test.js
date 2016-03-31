@@ -1,7 +1,3 @@
-console.log("It works");
-
-//var peer = new Peer({key: 'lwjd5qra8257b9'});
-//var peer = new Peer({key: 'bdy0b8k85qrrudi'});
 var peer = new Peer({host: 'localhost', port: 9000});
 var connection = null;
 peer.on('open', function(id) {
@@ -13,7 +9,7 @@ peer.on('open', function(id) {
 	document.getElementById("body").appendChild(node);     // Append <li> to <ul> with id="myList"
 	var peer_ID = window.prompt("Enter ID of peer to connect to.", "Peer ID");
 	if (peer_ID != null) {
-		/*connection = peer.connect(peer_ID);
+		connection = peer.connect(peer_ID);
 		if (connection != null) {
 			connection.on('open', function() {
 				//greet new peer
@@ -24,8 +20,8 @@ peer.on('open', function(id) {
 			connection.on('data', function(data) {
 				receive_message(data);
 			});
-		}*/
-		var conn = peer.connect(peer_ID);
+		}
+		/*var conn = peer.connect(peer_ID);
 		if (conn != null) {
 			conn.on('open', function() {
 				//greet new peer
@@ -36,24 +32,15 @@ peer.on('open', function(id) {
 			conn.on('data', function(data) {
 				receive_message(data);
 			});
-		}		
+		}*/
 	}
 });
 
 peer.on('connection', function(conn) {
-	console.log("recieved connection");
-	/*connection = conn;
-	connection.on('open', function() {
-	});connection
-		//greet new peer
-	});connection
-		console.log("Connected to peer");
-		//document.write("Connected to peer");
-		connection.send("Hello peer!");
-	});connection
-	connection.on('data', function(data) {
-		receive_message(data);
+	/*conn.on('open', function() {
+		document.write("connection established");
 	});*/
+	connection = conn;
 	conn.on('open', function() {
 		//greet new peer
 		console.log("Connected to peer");
